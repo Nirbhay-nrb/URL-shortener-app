@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'url_converter_page.dart';
+import 'package:url_shortener_app/screens/loading_screen.dart';
 
 void main() {
-  runApp(urlShortener());
+  runApp(MyApp());
 }
 
-class urlShortener extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: urlShortenerPage.id,
+      initialRoute: LoadingScreen.id,
       routes: {
-        urlShortenerPage.id: (ctx) => urlShortenerPage(),
+        LoadingScreen.id: (ctx) => LoadingScreen(),
       },
     );
   }
