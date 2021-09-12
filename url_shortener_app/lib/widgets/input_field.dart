@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+
+import '../constants.dart';
+
+class InputField extends StatelessWidget {
+  final String hintText;
+  final Function onChanged;
+  InputField({this.hintText, this.onChanged});
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      textAlign: TextAlign.center,
+      cursorColor: kButtonColor,
+      style: TextStyle(
+        color: Colors.black,
+      ),
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        hintText: hintText,
+        filled: true,
+        fillColor: Color(0xFFFFF0DE),
+        // fillColor: Color(0xFFfff9c4),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            borderSide: BorderSide(color: kButtonColor, width: 1)),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
+      ),
+    );
+  }
+}

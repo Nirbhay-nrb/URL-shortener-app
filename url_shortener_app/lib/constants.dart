@@ -6,6 +6,12 @@ final kHomePageTitle = TextStyle(
   fontWeight: FontWeight.w700,
   fontFamily: 'Satisfy',
 );
+final kHeadings = TextStyle(
+  color: Color(0xFF2B54D5),
+  fontSize: 60,
+  fontWeight: FontWeight.w700,
+  fontFamily: 'Satisfy',
+);
 final kHomePageCaption = TextStyle(
   color: Color(0xFF2B54D5),
   fontSize: 30,
