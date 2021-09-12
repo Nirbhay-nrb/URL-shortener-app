@@ -8,10 +8,11 @@ final kHomePageTitle = TextStyle(
 );
 final kHomePageCaption = TextStyle(
   color: Color(0xFF2B54D5),
-  fontSize: 25,
+  fontSize: 30,
   fontWeight: FontWeight.bold,
   fontFamily: 'AkayaKanadaka',
 );
 
-final kBackgroundColor = Color(0xFFF9E18D);
+final kBackgroundColor = Color(0xFF80DEB7);
+// final kBackgroundColor = Color(0xFFF9E18D);
 final kButtonColor = Color(0xFF2B54D5);
