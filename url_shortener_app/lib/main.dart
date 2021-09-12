@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_shortener_app/screens/homepage.dart';
 import 'package:url_shortener_app/screens/loading_screen.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       initialRoute: LoadingScreen.id,
       routes: {
         LoadingScreen.id: (ctx) => LoadingScreen(),
+        HomePage.id: (ctx) => HomePage(),
       },
     );
   }

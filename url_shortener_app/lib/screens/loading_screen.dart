@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_shortener_app/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:url_shortener_app/screens/homepage.dart';
 
 class LoadingScreen extends StatefulWidget {
   static const String id = 'loading_screen';
@@ -43,8 +44,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
                 textAlign: TextAlign.center,
               ),
               Expanded(
-                child: Image(
-                  image: AssetImage('assets/homepage.png'),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, HomePage.id);
+                  },
+                  child: Image(
+                    image: AssetImage('assets/homepage.png'),
+                  ),
                 ),
               ),
             ],
