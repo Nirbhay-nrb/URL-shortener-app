@@ -19,6 +19,22 @@ final kHomePageCaption = TextStyle(
   fontFamily: 'AkayaKanadaka',
 );
 
-final kBackgroundColor = Color(0xFF80DEB7);
-// final kBackgroundColor = Color(0xFFF9E18D);
+final kBackgroundColor = Color(0xFFbdbdbd);
 final kButtonColor = Color(0xFF2B54D5);
+
+final kDisplayTextFieldDecoration = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+  border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      borderSide: BorderSide(color: kButtonColor, width: 1)),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
+    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+  ),
+);

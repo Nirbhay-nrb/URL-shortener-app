@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_shortener_app/constants.dart';
+import 'package:url_shortener_app/screens/myurls_page.dart';
 import 'package:url_shortener_app/screens/url_input_page.dart';
 import 'package:url_shortener_app/widgets/Button.dart';
 
@@ -36,7 +37,9 @@ class HomePage extends StatelessWidget {
               ),
               Button(
                 text: 'My URLs',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, MyUrls.id);
+                },
               ),
             ],
           ),

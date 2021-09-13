@@ -9,22 +9,24 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      minWidth: 200,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: EdgeInsets.all(20),
-      elevation: 10,
-      color: kButtonColor,
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 30,
-          fontFamily: 'AkayaKanadaka',
-          fontWeight: FontWeight.bold,
+    return Flexible(
+      child: MaterialButton(
+        minWidth: 180,
+        height: 75,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        elevation: 10,
+        color: kButtonColor,
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'AkayaKanadaka',
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

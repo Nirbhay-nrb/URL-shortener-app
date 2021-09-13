@@ -18,8 +18,7 @@ class InputField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         filled: true,
-        fillColor: Color(0xFFFFF0DE),
-        // fillColor: Color(0xFFfff9c4),
+        fillColor: Colors.white,
         contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),

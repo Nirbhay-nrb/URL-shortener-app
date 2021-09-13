@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_shortener_app/constants.dart';
+import 'package:url_shortener_app/screens/url_output_page.dart';
 import 'package:url_shortener_app/widgets/Button.dart';
 import 'package:url_shortener_app/widgets/homebutton.dart';
 import 'package:url_shortener_app/widgets/input_field.dart';
@@ -47,7 +48,9 @@ class URLinputPage extends StatelessWidget {
               ),
               Button(
                 text: 'Create',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, URLoutputPage.id);
+                },
               ),
             ],
           ),
