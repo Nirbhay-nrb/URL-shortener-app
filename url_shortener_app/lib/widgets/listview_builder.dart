@@ -5,13 +5,13 @@ import 'package:url_shortener_app/models/urls.dart';
 class ListOfURLs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final urlsObject = Provider.of<Urls>(context);
-    List<String> listOfUrls = urlsObject.getListOfUrls;
+    List<String> listOfUrls = Provider.of<Urls>(context).getListOfUrls;
     return ListView.builder(
       itemBuilder: (context, index) {
         return ListTile(
           onLongPress: () {
-            urlsObject.deleteUrl(index);
+            Provider.of<Urls>(context, listen: false)
+                .deleteUrl(listOfUrls[index]);
           },
           title: Text(
             listOfUrls[index],

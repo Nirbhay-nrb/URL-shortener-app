@@ -16,7 +16,7 @@ class Urls extends ChangeNotifier {
     return [..._urls];
   }
 
-  void deleteUrl(int i) {
+  void deleteUrl(String i) {
     _urls.remove(i);
     notifyListeners();
   }
