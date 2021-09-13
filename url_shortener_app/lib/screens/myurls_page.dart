@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_shortener_app/constants.dart';
 import 'package:url_shortener_app/widgets/homebutton.dart';
@@ -17,9 +18,32 @@ class MyUrls extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'My URLs',
-                style: kHeadings,
+              Stack(
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      'My URLs',
+                      style: kHeadings,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            Icons.info_outline,
+                            color: Colors.black54,
+                            size: 30,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 5,
