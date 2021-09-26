@@ -10,6 +10,17 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  void navigateToNextScreen() async {
+    await Future.delayed(Duration(milliseconds: 3200));
+    Navigator.pushNamed(context, HomePage.id);
+  }
+
+  @override
+  void initState() {
+    navigateToNextScreen();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

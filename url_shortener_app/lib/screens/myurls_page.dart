@@ -4,8 +4,15 @@ import 'package:url_shortener_app/constants.dart';
 import 'package:url_shortener_app/widgets/homebutton.dart';
 import 'package:url_shortener_app/widgets/listview_builder.dart';
 
-class MyUrls extends StatelessWidget {
+class MyUrls extends StatefulWidget {
   static const id = 'myurls_page';
+
+  @override
+  _MyUrlsState createState() => _MyUrlsState();
+}
+
+class _MyUrlsState extends State<MyUrls> {
+  bool isVisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,32 +25,12 @@ class MyUrls extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  Center(
-                    child: Text(
-                      'My URLs',
-                      style: kHeadings,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Icon(
-                            Icons.info_outline,
-                            color: Colors.black54,
-                            size: 30,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              Center(
+                child: Text(
+                  'My URLs',
+                  style: kHeadings,
+                  textAlign: TextAlign.center,
+                ),
               ),
               SizedBox(
                 height: 5,

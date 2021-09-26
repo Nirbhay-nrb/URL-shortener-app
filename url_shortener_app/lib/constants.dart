@@ -19,7 +19,7 @@ final kHomePageCaption = TextStyle(
   fontFamily: 'AkayaKanadaka',
 );
 
-final kBackgroundColor = Color(0xFFbdbdbd);
+final kBackgroundColor = Color(0xFFD4DEDA);
 final kButtonColor = Color(0xFF2B54D5);
 
 final kDisplayTextFieldDecoration = InputDecoration(
