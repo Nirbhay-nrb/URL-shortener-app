@@ -6,6 +6,7 @@ import 'package:url_shortener_app/widgets/homebutton.dart';
 
 class URLoutputPage extends StatelessWidget {
   static const id = 'url_output_page';
+  // final String resultURL = ;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,12 @@ class URLoutputPage extends StatelessWidget {
                 style: kHeadings,
               ),
               TextField(
+                textAlign: TextAlign.center,
                 enabled: false,
                 maxLines: 2,
-                decoration: kDisplayTextFieldDecoration,
+                decoration: kDisplayTextFieldDecoration.copyWith(
+                  hintText: 'nirbhay',
+                ),
               ),
               SizedBox(
                 height: 35,

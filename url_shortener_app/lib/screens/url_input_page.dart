@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:url_shortener_app/constants.dart';
 import 'package:url_shortener_app/screens/url_output_page.dart';
+import 'package:url_shortener_app/services/shortenedURL.dart';
 import 'package:url_shortener_app/widgets/Button.dart';
 import 'package:url_shortener_app/widgets/homebutton.dart';
 import 'package:url_shortener_app/widgets/input_field.dart';
 
-class URLinputPage extends StatelessWidget {
+class URLinputPage extends StatefulWidget {
   static const id = 'url_input_page';
+
+  @override
+  _URLinputPageState createState() => _URLinputPageState();
+}
+
+class _URLinputPageState extends State<URLinputPage> {
+  String urlToShorten;
+  String alias = '';
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,9 @@ class URLinputPage extends StatelessWidget {
               ),
               InputField(
                 hintText: 'Enter your URL',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  urlToShorten = value;
+                },
               ),
               SizedBox(
                 height: 30,
@@ -41,15 +52,33 @@ class URLinputPage extends StatelessWidget {
               ),
               InputField(
                 hintText: 'Enter Alias',
-                onChanged: (value) {},
+                onChanged: (value) {
+                  alias = value;
+                },
               ),
               SizedBox(
                 height: 45,
               ),
               Button(
                 text: 'Create',
-                onPressed: () {
-                  Navigator.pushNamed(context, URLoutputPage.id);
+                onPressed: () async {
+                  ShortURL urlModel = ShortURL();
+                  print(alias.isEmpty);
+                  final urlData =
+                      await urlModel.getShortURL(urlToShorten, alias);
+                  if (urlData == Null) {
+                    print('null hai be');
+                  }
+                  if (urlData != Null) {
+                    print('null nahi hai be');
+                  }
+                  String urlShortened = urlData.data.tiny_url;
+                  print(urlShortened);
+                  Navigator.pushNamed(
+                    context,
+                    URLoutputPage.id,
+                    arguments: urlShortened,
+                  );
                 },
               ),
             ],
