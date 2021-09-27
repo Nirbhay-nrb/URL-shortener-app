@@ -15,7 +15,9 @@ class URLinputPage extends StatefulWidget {
 
 class _URLinputPageState extends State<URLinputPage> {
   String urlToShorten;
-  String alias = '';
+  String alias;
+  final myController1 = TextEditingController();
+  final myController2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class _URLinputPageState extends State<URLinputPage> {
                 style: kHeadings,
               ),
               InputField(
+                controller: myController1,
                 hintText: 'Enter your URL',
                 onChanged: (value) {
                   urlToShorten = value;
@@ -51,6 +54,7 @@ class _URLinputPageState extends State<URLinputPage> {
                 style: kHeadings,
               ),
               InputField(
+                controller: myController2,
                 hintText: 'Enter Alias',
                 onChanged: (value) {
                   alias = value;
@@ -62,22 +66,25 @@ class _URLinputPageState extends State<URLinputPage> {
               Button(
                 text: 'Create',
                 onPressed: () async {
-                  ShortURL urlModel = ShortURL();
-                  print(alias.isEmpty);
-                  final urlData =
-                      await urlModel.getShortURL(urlToShorten, alias);
+                  print(alias == null);
+                  ShortURL urlModel =
+                      ShortURL(urlToShorten: urlToShorten, alias: alias);
+                  final urlData = await urlModel.getShortURL();
                   if (urlData == Null) {
                     print('null hai be');
                   }
+                  myController1.clear();
+                  myController2.clear();
                   if (urlData != Null) {
                     print('null nahi hai be');
                   }
-                  String urlShortened = urlData.data.tiny_url;
-                  print(urlShortened);
+                  // print(urlData.body);
+                  // String urlShortened = urlData['data']['tiny_url'];
+                  // print(urlShortened);
                   Navigator.pushNamed(
                     context,
                     URLoutputPage.id,
-                    arguments: urlShortened,
+                    // arguments: urlShortened,
                   );
                 },
               ),

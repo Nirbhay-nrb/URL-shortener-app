@@ -5,7 +5,8 @@ import '../constants.dart';
 class InputField extends StatelessWidget {
   final String hintText;
   final Function onChanged;
-  InputField({this.hintText, this.onChanged});
+  final TextEditingController controller;
+  InputField({this.hintText, this.onChanged, this.controller});
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -15,6 +16,7 @@ class InputField extends StatelessWidget {
         color: Colors.black,
       ),
       onChanged: onChanged,
+      controller: controller ?? null,
       decoration: InputDecoration(
         hintText: hintText,
         filled: true,
