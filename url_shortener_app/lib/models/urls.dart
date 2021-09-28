@@ -1,11 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class Urls extends ChangeNotifier {
-  List<String> _urls = [
-    'url1',
-    'url2',
-    'url3',
-  ];
+  List<String> _urls = [];
 
   void add(String url) {
     _urls.add(url);

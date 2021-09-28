@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_shortener_app/constants.dart';
+import 'package:url_shortener_app/models/urls.dart';
 import 'package:url_shortener_app/screens/url_output_page.dart';
 import 'package:url_shortener_app/services/shortenedURL.dart';
 import 'package:url_shortener_app/widgets/Button.dart';
@@ -80,6 +82,7 @@ class _URLinputPageState extends State<URLinputPage> {
                   }
                   String urlShortened = urlData['data']['tiny_url'];
                   print(urlShortened);
+                  Provider.of<Urls>(context, listen: false).add(urlShortened);
                   Navigator.pushNamed(
                     context,
                     URLoutputPage.id,
