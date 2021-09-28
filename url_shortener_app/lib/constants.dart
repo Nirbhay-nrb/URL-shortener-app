@@ -38,3 +38,9 @@ final kDisplayTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(10.0)),
   ),
 );
+
+final snackBar = SnackBar(
+  content: Text('Link Copied'),
+  duration: Duration(seconds: 2),
+  backgroundColor: Colors.black,
+);

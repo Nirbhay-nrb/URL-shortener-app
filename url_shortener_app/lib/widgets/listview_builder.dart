@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:url_shortener_app/models/urls.dart';
 
+import '../constants.dart';
 import 'listButton.dart';
 
 class ListOfURLs extends StatelessWidget {
@@ -28,6 +29,7 @@ class ListOfURLs extends StatelessWidget {
                   onTap: () {
                     final data = ClipboardData(text: listOfUrls[index]);
                     Clipboard.setData(data);
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
                   child: ListButton(
                     icon: Icons.copy,

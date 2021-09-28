@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_shortener_app/constants.dart';
@@ -58,6 +59,7 @@ class URLoutputPage extends StatelessWidget {
                     onPressed: () {
                       final data = ClipboardData(text: resultURL);
                       Clipboard.setData(data);
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                   ),
                   SizedBox(
