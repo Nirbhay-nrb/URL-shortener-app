@@ -55,7 +55,7 @@ class _URLinputPageState extends State<URLinputPage> {
               ),
               InputField(
                 controller: myController2,
-                hintText: 'Enter Alias',
+                hintText: 'Enter Alias : 5-30 letters',
                 onChanged: (value) {
                   alias = value;
                 },
@@ -78,13 +78,12 @@ class _URLinputPageState extends State<URLinputPage> {
                   if (urlData != Null) {
                     print('null nahi hai be');
                   }
-                  // print(urlData.body);
-                  // String urlShortened = urlData['data']['tiny_url'];
-                  // print(urlShortened);
+                  String urlShortened = urlData['data']['tiny_url'];
+                  print(urlShortened);
                   Navigator.pushNamed(
                     context,
                     URLoutputPage.id,
-                    // arguments: urlShortened,
+                    arguments: urlShortened,
                   );
                 },
               ),
