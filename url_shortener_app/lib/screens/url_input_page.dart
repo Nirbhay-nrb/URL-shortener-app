@@ -5,6 +5,7 @@ import 'package:url_shortener_app/models/urls.dart';
 import 'package:url_shortener_app/screens/url_output_page.dart';
 import 'package:url_shortener_app/services/shortenedURL.dart';
 import 'package:url_shortener_app/widgets/Button.dart';
+import 'package:url_shortener_app/widgets/errorBox.dart';
 import 'package:url_shortener_app/widgets/homebutton.dart';
 import 'package:url_shortener_app/widgets/input_field.dart';
 
@@ -20,6 +21,32 @@ class _URLinputPageState extends State<URLinputPage> {
   String alias;
   final myController1 = TextEditingController();
   final myController2 = TextEditingController();
+
+  void getData() async {
+    ShortURL urlModel = ShortURL(urlToShorten: urlToShorten, alias: alias);
+    final urlData = await urlModel.getShortURL();
+    print(urlData);
+    // if (urlData.errors[0] == null) {
+    String urlShortened = urlData['data']['tiny_url'];
+    print(urlShortened);
+    Provider.of<Urls>(context, listen: false).add(urlShortened);
+    Navigator.pushNamed(
+      context,
+      URLoutputPage.id,
+      arguments: urlShortened,
+    );
+    // } else {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) {
+    //       return ErrorBox(
+    //         buttonMessage: 'Try Again',
+    //         errorMessage: urlData.errors[0],
+    //       );
+    //     },
+    //   );
+    // }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,26 +95,19 @@ class _URLinputPageState extends State<URLinputPage> {
               Button(
                 text: 'Create',
                 onPressed: () async {
-                  print(alias == null);
-                  ShortURL urlModel =
-                      ShortURL(urlToShorten: urlToShorten, alias: alias);
-                  final urlData = await urlModel.getShortURL();
-                  if (urlData == Null) {
-                    print('null hai be');
-                  }
                   myController1.clear();
                   myController2.clear();
-                  if (urlData != Null) {
-                    print('null nahi hai be');
-                  }
-                  String urlShortened = urlData['data']['tiny_url'];
-                  print(urlShortened);
-                  Provider.of<Urls>(context, listen: false).add(urlShortened);
-                  Navigator.pushNamed(
-                    context,
-                    URLoutputPage.id,
-                    arguments: urlShortened,
-                  );
+                  (urlToShorten == null)
+                      ? showDialog(
+                          context: context,
+                          builder: (context) {
+                            return ErrorBox(
+                              errorMessage: 'URL field is required',
+                              buttonMessage: 'Okay',
+                            );
+                          },
+                        )
+                      : getData();
                 },
               ),
             ],
@@ -97,3 +117,12 @@ class _URLinputPageState extends State<URLinputPage> {
     );
   }
 }
+
+/*
+  showDialog(
+    context: context,
+    builder: (context) {
+      return ErrorBox();
+    },
+  );         
+*/
