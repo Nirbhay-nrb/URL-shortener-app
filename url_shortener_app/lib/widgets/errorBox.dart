@@ -5,7 +5,7 @@ import '../constants.dart';
 class ErrorBox extends StatelessWidget {
   final String errorMessage;
   final String buttonMessage;
-  ErrorBox({this.buttonMessage, this.errorMessage});
+  ErrorBox({this.buttonMessage = '', this.errorMessage = ''});
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

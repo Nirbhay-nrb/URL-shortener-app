@@ -6,7 +6,7 @@ const tinyURL = 'https://api.tinyurl.com/create?api_token=$apiKey';
 class ShortURL {
   String urlToShorten = '';
   String alias = '';
-  ShortURL({this.alias, this.urlToShorten});
+  ShortURL({this.alias = '', this.urlToShorten = ''});
   Future<dynamic> getShortURL() async {
     print('is class mein aagaya');
     print(urlToShorten);

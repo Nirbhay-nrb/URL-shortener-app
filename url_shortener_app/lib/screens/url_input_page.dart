@@ -17,8 +17,8 @@ class URLinputPage extends StatefulWidget {
 }
 
 class _URLinputPageState extends State<URLinputPage> {
-  String urlToShorten;
-  String alias;
+  String urlToShorten = '';
+  String alias = '';
   final myController1 = TextEditingController();
   final myController2 = TextEditingController();
 

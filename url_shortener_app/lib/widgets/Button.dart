@@ -5,7 +5,7 @@ import '../constants.dart';
 class Button extends StatelessWidget {
   final Function onPressed;
   final String text;
-  Button({this.onPressed, this.text});
+  Button({this.onPressed, this.text = ''});
 
   @override
   Widget build(BuildContext context) {

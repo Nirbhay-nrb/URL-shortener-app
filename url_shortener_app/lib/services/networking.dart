@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class NetworkHelper {
-  NetworkHelper({this.url, this.alias, this.urlToShorten});
+  NetworkHelper({this.url = '', this.alias = '', this.urlToShorten = ''});
   String url;
   String urlToShorten;
   String domain = 'tinyurl.com';
