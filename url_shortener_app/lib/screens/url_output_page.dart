@@ -12,7 +12,7 @@ class URLoutputPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String resultURL =
-        ModalRoute.of(context).settings.arguments as String;
+        ModalRoute.of(context)?.settings.arguments as String;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       floatingActionButton: HomeButton(),

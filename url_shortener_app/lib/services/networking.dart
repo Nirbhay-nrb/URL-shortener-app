@@ -12,7 +12,7 @@ class NetworkHelper {
     Map<String, String> body = {
       "url": "$urlToShorten",
       "domain": "$domain",
-      "alias": alias == null ? "" : "$alias"
+      "alias": alias == '' ? "" : "$alias"
     };
     final jsonString = json.encode(body);
     print(jsonString);

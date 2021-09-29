@@ -6,7 +6,8 @@ class InputField extends StatelessWidget {
   final String hintText;
   final Function onChanged;
   final TextEditingController controller;
-  InputField({this.hintText = '', this.onChanged, this.controller});
+  InputField(
+      {this.hintText = '', required this.onChanged, required this.controller});
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -15,7 +16,9 @@ class InputField extends StatelessWidget {
       style: TextStyle(
         color: Colors.black,
       ),
-      onChanged: onChanged,
+      onChanged: (value) {
+        onChanged(value);
+      },
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,

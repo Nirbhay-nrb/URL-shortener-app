@@ -10,7 +10,7 @@ class ShortURL {
   Future<dynamic> getShortURL() async {
     print('is class mein aagaya');
     print(urlToShorten);
-    if (alias == null) print('alias is null');
+    if (alias == '') print('alias is null');
     NetworkHelper networkHelper = NetworkHelper(
       url: tinyURL,
       urlToShorten: urlToShorten,

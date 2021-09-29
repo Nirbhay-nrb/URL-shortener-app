@@ -5,7 +5,7 @@ import '../constants.dart';
 class Button extends StatelessWidget {
   final Function onPressed;
   final String text;
-  Button({this.onPressed, this.text = ''});
+  Button({required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class Button extends StatelessWidget {
         ),
         elevation: 10,
         color: kButtonColor,
-        onPressed: onPressed,
+        onPressed: () {
+          onPressed();
+        },
         child: Text(
           text,
           style: TextStyle(

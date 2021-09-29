@@ -97,7 +97,7 @@ class _URLinputPageState extends State<URLinputPage> {
                 onPressed: () async {
                   myController1.clear();
                   myController2.clear();
-                  (urlToShorten == null)
+                  (urlToShorten == '')
                       ? showDialog(
                           context: context,
                           builder: (context) {

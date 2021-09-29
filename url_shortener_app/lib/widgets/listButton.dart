@@ -4,7 +4,7 @@ import '../constants.dart';
 
 class ListButton extends StatelessWidget {
   final IconData icon;
-  ListButton({this.icon});
+  ListButton({required this.icon});
 
   @override
   Widget build(BuildContext context) {
