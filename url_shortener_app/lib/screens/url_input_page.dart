@@ -55,17 +55,15 @@ class _URLinputPageState extends State<URLinputPage> {
         isLoading = false;
       });
     }
-    // } else {
     // showDialog(
     //   context: context,
     //   builder: (context) {
     //     return ErrorBox(
-    //       buttonMessage: 'Try Again',
-    //       errorMessage: urlData.errors[0],
+    //       buttonMessage: 'string',
+    //       errorMessage: 'string',
     //     );
     //   },
     // );
-    // }
   }
 
   @override
@@ -141,12 +139,3 @@ class _URLinputPageState extends State<URLinputPage> {
     );
   }
 }
-
-/*
-  showDialog(
-    context: context,
-    builder: (context) {
-      return ErrorBox();
-    },
-  );         
-*/
