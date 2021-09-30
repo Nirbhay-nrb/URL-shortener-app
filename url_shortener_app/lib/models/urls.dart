@@ -14,7 +14,7 @@ class Urls extends ChangeNotifier {
   }
 
   List<String> get getListOfUrls {
-    return [..._urls];
+    return [..._urls.reversed];
   }
 
   void deleteUrl(String i) {

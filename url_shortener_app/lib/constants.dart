@@ -40,7 +40,26 @@ final kDisplayTextFieldDecoration = InputDecoration(
 );
 
 final snackBar = SnackBar(
-  content: Text('Link Copied'),
+  content: Text(
+    'Link Copied',
+    style: TextStyle(fontSize: 16),
+  ),
   duration: Duration(seconds: 2),
+  backgroundColor: Colors.black,
+);
+final snackBar1 = SnackBar(
+  content: Text(
+    'Link cannot be opened',
+    style: TextStyle(fontSize: 16),
+  ),
+  duration: Duration(seconds: 2),
+  backgroundColor: Colors.black,
+);
+final snackBar2 = SnackBar(
+  content: Text(
+    'Click on link to open it',
+    style: TextStyle(fontSize: 16),
+  ),
+  duration: Duration(seconds: 3),
   backgroundColor: Colors.black,
 );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_shortener_app/models/urls.dart';
 
 import '../constants.dart';
@@ -13,18 +14,29 @@ class ListOfURLs extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(
-            listOfUrls[index],
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
+          title: GestureDetector(
+            onTap: () async {
+              print('url opener initiatied');
+              if (await canLaunch(listOfUrls[index])) {
+                print('url opening succesful');
+                await launch(listOfUrls[index]);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(snackBar1);
+              }
+            },
+            child: Text(
+              listOfUrls[index],
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 19,
+              ),
             ),
           ),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 8),
+                padding: EdgeInsets.only(right: 6),
                 child: GestureDetector(
                   onTap: () {
                     final data = ClipboardData(text: listOfUrls[index]);

@@ -16,18 +16,24 @@ class NetworkHelper {
     };
     final jsonString = json.encode(body);
     print(jsonString);
+    try {
+      final urlid = Uri.parse(url);
+      http.Response response = await http.post(urlid,
+          headers: {'Content-Type': 'application/json'}, body: jsonString);
 
-    final urlid = Uri.parse(url);
-    http.Response response = await http.post(urlid,
-        headers: {'Content-Type': 'application/json'}, body: jsonString);
-
-    if (response.statusCode == 200) {
-      print('body created');
-      String data = response.body;
-      return jsonDecode(data);
-    } else {
-      print(response.statusCode);
-      print(response.body);
+      if (response.statusCode == 200) {
+        print('body created');
+        String data = response.body;
+        return jsonDecode(data);
+      } else {
+        print(response.statusCode);
+        print(response.body);
+        final errorData = json.decode(response.body) as Map<String, dynamic>;
+        final errorList = errorData['errors'];
+        throw errorList[0];
+      }
+    } catch (e) {
+      throw e;
     }
   }
 }
