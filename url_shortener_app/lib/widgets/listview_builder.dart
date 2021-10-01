@@ -12,32 +12,30 @@ class ListOfURLs extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> listOfUrls = Provider.of<Urls>(context).getListOfUrls;
     return listOfUrls.length == 0
-        ? SafeArea(
-            child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'No URLs yet',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Satisfy',
-                      fontSize: 25,
-                    ),
-                    textAlign: TextAlign.left,
+        ? Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'No URLs yet',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontFamily: 'Satisfy',
+                    fontSize: 25,
                   ),
-                  Text(
-                    'Click on any URL to open it',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontFamily: 'Satisfy',
-                      fontSize: 25,
-                    ),
-                    textAlign: TextAlign.left,
+                  textAlign: TextAlign.left,
+                ),
+                Text(
+                  'Click on any URL to open it',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontFamily: 'Satisfy',
+                    fontSize: 25,
                   ),
-                ],
-              ),
+                  textAlign: TextAlign.left,
+                ),
+              ],
             ),
           )
         : ListView.builder(
@@ -81,6 +79,8 @@ class ListOfURLs extends StatelessWidget {
                       onTap: () {
                         Provider.of<Urls>(context, listen: false)
                             .deleteUrl(listOfUrls[index]);
+                        Provider.of<Urls>(context, listen: false)
+                            .deleteURLperm(index);
                       },
                       child: ListButton(
                         icon: Icons.delete,

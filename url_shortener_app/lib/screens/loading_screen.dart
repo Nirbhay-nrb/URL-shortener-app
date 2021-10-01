@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_shortener_app/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:url_shortener_app/models/urls.dart';
 import 'package:url_shortener_app/screens/homepage.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -18,6 +20,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     navigateToNextScreen();
+    Provider.of<Urls>(context, listen: false).getList();
     super.initState();
   }
 

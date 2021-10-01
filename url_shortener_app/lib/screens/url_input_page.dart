@@ -35,6 +35,7 @@ class _URLinputPageState extends State<URLinputPage> {
       String urlShortened = urlData['data']['tiny_url'];
       print(urlShortened);
       Provider.of<Urls>(context, listen: false).add(urlShortened);
+      Provider.of<Urls>(context, listen: false).setList();
       Navigator.pushNamed(
         context,
         URLoutputPage.id,
